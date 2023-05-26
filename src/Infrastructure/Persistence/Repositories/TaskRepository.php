@@ -7,7 +7,6 @@ namespace TaskManager\Infrastructure\Persistence\Repositories;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
-use TaskManager\Application\Mappers\CategoryMapper;
 use TaskManager\Application\Mappers\TaskMapper;
 use TaskManager\Domain\Contracts\TaskRepositoryContract;
 use TaskManager\Domain\Contracts\TasksCategoriesRepositoryContract;
@@ -55,10 +54,23 @@ final class TaskRepository implements TaskRepositoryContract
             }
         } catch (QueryException $exception) {
             DB::rollBack();
-            return response()->json(['data' => "Error $exception"],400);
+            throw $exception;
         } catch (ModelNotFoundException $exception){
             DB::rollBack();
-            return response()->json(['data' => "Error: $exception"],404);
+            throw $exception;
+        }
+    }
+
+    public function deleteTask(int $idTask):void
+    {
+        try{
+        $task = $this->eloquentTaskModel->findOrFail($idTask);
+        $task->categories()->detach();
+        $task->delete();
+        }catch (ModelNotFoundException $exception){
+            throw $exception;
+        }catch (QueryException $exception) {
+            throw $exception;
         }
     }
 }

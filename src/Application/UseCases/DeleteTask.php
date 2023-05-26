@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace TaskManager\Application\UseCases;
 
 use TaskManager\Domain\Contracts\TaskRepositoryContract;
-use TaskManager\Domain\Model\Entities\Task;
 
 final class DeleteTask
 {

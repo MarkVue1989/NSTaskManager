@@ -6,9 +6,7 @@ namespace TaskManager\Infrastructure\Persistence\Repositories;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
-use TaskManager\Application\Mappers\CategoryMapper;
 use TaskManager\Application\Mappers\TaskMapper;
 use TaskManager\Domain\Contracts\TaskRepositoryContract;
 use TaskManager\Domain\Contracts\TasksCategoriesRepositoryContract;

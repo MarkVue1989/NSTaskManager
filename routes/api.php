@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CreateTaskController;
 use App\Http\Controllers\GetTasksController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get("/task",[GetTasksController::class,'__invoke']);
+Route::post("/task",[CreateTaskController::class,'__invoke']);

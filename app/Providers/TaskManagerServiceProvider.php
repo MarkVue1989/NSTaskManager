@@ -16,6 +16,10 @@ class TaskManagerServiceProvider extends ServiceProvider
             \TaskManager\Domain\Contracts\TaskRepositoryContract::class,
             \TaskManager\Infrastructure\Persistence\Repositories\TaskRepository::class
         );
+        $this->app->bind(
+            \TaskManager\Domain\Contracts\TasksCategoriesRepositoryContract::class,
+            \TaskManager\Infrastructure\Persistence\Repositories\TasksCategoriesRepository::class
+        );
     }
 
     /**

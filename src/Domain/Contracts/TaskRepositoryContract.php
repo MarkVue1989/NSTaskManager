@@ -8,4 +8,5 @@ use TaskManager\Domain\ValueObjects\Tasks;
 interface TaskRepositoryContract{
     public function getTasks():Tasks;
     public function createTask(string $name, array $categories):Task;
+    public function deleteTask(int $idTask):void;
 }

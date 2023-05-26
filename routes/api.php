@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CreateTaskController;
 use App\Http\Controllers\DeleteTaskController;
+use App\Http\Controllers\GetCategoriesController;
 use App\Http\Controllers\GetTasksController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,3 +25,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get("/task",[GetTasksController::class,'__invoke']);
 Route::post("/task",[CreateTaskController::class,'__invoke']);
 Route::delete("/task/{id}",[DeleteTaskController::class,'__invoke']);
+Route::get("/categories",[GetCategoriesController::class,'__invoke']);
